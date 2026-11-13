@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Evidence, Receipt, Trace } from "@/components/Desk";
+import { Badge, HeroStamp, Kinetic, Ticker } from "@/components/Hero";
 import { Sigil } from "@/components/Sigil";
 import { toneOf } from "@/components/Stamp";
 import { PITCHES } from "@/content/pitches";
@@ -97,23 +98,30 @@ export default function Floor() {
 
   return (
     <main className="page">
-      <section className="hero">
-        <h1>
-          Every agent carries a <em>passport.</em>
-          <br />
-          Every counterparty runs a <em>checkpoint.</em>
-        </h1>
-        <p className="lede">
-          Pick an agent, name a price, and watch the gate check what it can prove: who it is, what it may do, what it has
-          done, and who stands behind it. No score without a receipt.
-        </p>
+      <section className="hero hero-home">
+        <div>
+          <Kinetic lines={["Papers,", "please."]}>
+            <HeroStamp />
+          </Kinetic>
+          <p className="lede">
+            A trust layer for AI agents. Every agent carries signed papers, every counterparty checks them, and every
+            decision prints a receipt anyone can verify.
+          </p>
+          <div className="hero-cta">
+            <a className="btn btn-big" href="#floor">Try the gate</a>
+            <Link className="btn btn-quiet" href="/attacks">Watch ten attacks fail</Link>
+          </div>
+        </div>
+        <Badge did={world?.actor("atlas").signer.did} />
       </section>
 
-      <section className="floor" aria-label="The Floor">
+      <Ticker />
+
+      <section className="floor" id="floor" aria-label="The Floor">
         {/* ------------------------------------------------ the queue -- */}
         <div className="col col-queue">
           <div className="col-head">
-            <span className="label">01 · The queue</span>
+            <h2 className="col-title">The queue</h2>
             <div className="seg" role="group" aria-label="Direction">
               <button className={buyerMode ? "on" : ""} onClick={() => { setDirection("buyer-checks-vendor"); clear(); }}>
                 Atlas checks vendor
@@ -157,7 +165,7 @@ export default function Floor() {
         {/* ----------------------------------------------- the checkpoint -- */}
         <div className="col col-gate">
           <div className="col-head">
-            <span className="label">02 · The checkpoint</span>
+            <h2 className="col-title">The gate</h2>
             {entry && <span className={`pill pill-${toneOf(entry.evaluation.decision.verdict)}`}>{done ? entry.evaluation.decision.verdict.replace(/_/g, " ") : "checking"}</span>}
           </div>
 
@@ -220,9 +228,9 @@ export default function Floor() {
         </div>
 
         {/* ------------------------------------------------- the receipt -- */}
-        <div className="col col-receipt">
+        <div className={`col col-receipt ${entry && done ? `is-${toneOf(entry.evaluation.decision.verdict)}` : ""}`}>
           <div className="col-head">
-            <span className="label">03 · The receipt</span>
+            <h2 className="col-title">The receipt</h2>
             {entry && done && (
               <Link href="/verify" className="link-quiet">Verify it yourself →</Link>
             )}
@@ -255,7 +263,8 @@ export default function Floor() {
 
       <section className="log" aria-label="Decision log">
         <div className="log-head">
-          <span className="label">Decision log · hash-chained, signed by each evaluator</span>
+          <h2 className="col-title">Decision log</h2>
+          <span className="label">Hash-chained, signed by each evaluator</span>
           <button className="link-quiet" onClick={() => { reset(); clear(); }}>Reset the world</button>
         </div>
         {history.length === 0 ? (

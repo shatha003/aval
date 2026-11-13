@@ -90,7 +90,7 @@ export function Receipt({
           <li key={i} className={i < revealed ? "in" : ""}>
             <span>{String(i + 1).padStart(2, "0")} {s.name}</span>
             <i />
-            <b className={`st-${s.status}`}>{s.status === "pass" ? "PASS" : s.status === "fail" ? "FAIL" : "—"}</b>
+            <b className={`st-${s.status}`}>{s.status === "pass" ? "PASS" : s.status === "fail" ? "FAIL" : "SKIP"}</b>
           </li>
         ))}
       </ul>
@@ -107,7 +107,7 @@ export function Receipt({
         {r.conditions.length > 0 && (
           <ul className="receipt-conds">
             {r.conditions.map((c, i) => (
-              <li key={i}><b>{c.kind}</b>{c.amount !== undefined ? ` ${usd(c.amount)}` : ""} — {c.note}</li>
+              <li key={i}><b>{c.kind}</b>{c.amount !== undefined ? ` ${usd(c.amount)}` : ""}: {c.note}</li>
             ))}
           </ul>
         )}
@@ -115,7 +115,8 @@ export function Receipt({
           <span>sig {short(r.proof.proofValue, 14, 6)}</span>
           <span>prev {r.prev ? tag(r.prev) : "genesis"}</span>
         </div>
-        <Stamp key={r.id} verdict={r.verdict} date={dateOf(r.decidedAt)} />
+        {/* Mounted only once the decision is final, so the slam lands when the reader sees it. */}
+        {done && <Stamp key={r.id} verdict={r.verdict} date={dateOf(r.decidedAt)} />}
       </div>
     </div>
   );

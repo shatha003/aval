@@ -76,7 +76,7 @@ export default function Passport() {
           <ul className="plain">
             {a.attestations.map((v) => (
               <li key={v.id}>
-                <b>{world.nameOf(v.issuer)}</b> — “{v.credentialSubject.claim}” <span className="mono dim">weight {v.credentialSubject.weight}</span>
+                <b>{world.nameOf(v.issuer)}</b>: “{v.credentialSubject.claim}” <span className="mono dim">weight {v.credentialSubject.weight}</span>
               </li>
             ))}
           </ul>

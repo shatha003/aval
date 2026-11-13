@@ -1,7 +1,7 @@
 "use client";
 
 import { ATTACKS, type Attack, type AttackRun } from "@aval/core";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
 import { words } from "@/lib/format";
 import { useWorld } from "@/lib/world-context";
 
@@ -71,7 +71,7 @@ export default function AttackLab() {
           const e = res?.run.evaluation;
           const stopped = e?.trace.find((s) => s.status === "fail");
           return (
-            <li key={a.id} className="attack">
+            <li key={a.id} className={`attack ${res ? "done" : ""}`}>
               <div className="attack-id">{a.id}</div>
               <div className="attack-body">
                 <h2>{a.title}</h2>
@@ -84,7 +84,7 @@ export default function AttackLab() {
                   {Array.from({ length: 10 }, (_, i) => {
                     const s = e?.trace[i];
                     const cls = !s ? "wait" : s.status === "pass" ? "ok" : s.status === "fail" ? "no" : "skip";
-                    return <span key={i} className={`strip-cell ${cls}`}><i>{i + 1}</i></span>;
+                    return <span key={i} className={`strip-cell ${cls}`} style={{ "--i": i } as CSSProperties}><i>{i + 1}</i></span>;
                   })}
                 </div>
                 {res && e ? (

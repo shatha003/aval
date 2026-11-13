@@ -105,7 +105,7 @@ export default function VerifyPage() {
             <p className="notice bad" style={{ margin: 0 }}>{result.error}</p>
           ) : (
             <>
-              <div className={`verdict-box ${result.data.ok ? "good" : "bad"}`}>
+              <div key={`${result.data.ok}-${note ?? ""}`} className={`verdict-box ${result.data.ok ? "good" : "bad"}`}>
                 <span className="label">{result.data.kind}</span>
                 <strong>{result.data.ok ? "Verifies" : "Does not verify"}</strong>
                 <p>{result.data.summary}</p>
