@@ -1,0 +1,118 @@
+/* Sub-pages: Attack Lab, Verify, Architecture, Passport. Same tokens as globals.css. */
+
+.hero-sub h1 { max-width: 16em; }
+.doc { padding: clamp(28px, 4vw, 52px) var(--pad); border-top: 1px solid var(--ink); }
+.doc h2 { font-size: clamp(1.8rem, 3.2vw, 2.6rem); line-height: 1.05; margin-bottom: 18px; }
+.doc h2 small { font-size: 12px; margin-left: 10px; }
+.doc-lede { max-width: 66ch; color: var(--ink-2); margin: 0 0 20px; }
+.small { font-size: 13px; }
+.plain { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.ledger.wide td, .ledger.wide th { padding: 10px 12px; }
+.ledger.wide td:nth-child(3) { max-width: 46ch; color: var(--ink-2); }
+.t-refuse { color: var(--refuse); }
+.t-accept { color: var(--accept); }
+
+/* ---------------------------------------------------------------- attacks -- */
+
+.lab-actions { display: flex; gap: 20px; align-items: center; margin-top: 24px; }
+.lab-tally { font-size: 13px; color: var(--ink-2); }
+.attacks { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
+.attack { display: grid; grid-template-columns: 90px minmax(0, 1.15fr) minmax(300px, 1fr); gap: 20px 32px; padding: 26px var(--pad); border-bottom: 1px solid var(--ink); }
+.attack-id { font-family: var(--serif); font-size: 56px; line-height: 0.9; color: var(--ink-3); }
+.attack-body h2 { font-size: 30px; margin-bottom: 10px; }
+.attack-body p { margin: 0 0 8px; max-width: 62ch; }
+.attack-body .label { display: block; margin-bottom: 1px; }
+.attack-defence { color: var(--ink-2); }
+.attack-expect { font-size: 11.5px; color: var(--ink-3); margin-top: 12px !important; }
+.strip { display: grid; grid-template-columns: repeat(10, 1fr); gap: 3px; margin-bottom: 14px; }
+.strip-cell { height: 30px; border: 1px solid var(--ink-3); display: grid; place-items: end start; padding: 0 0 1px 3px; position: relative; }
+.strip-cell i { font-style: normal; font-family: var(--mono); font-size: 9.5px; color: var(--ink-3); }
+.strip-cell.ok { background: var(--accept); border-color: var(--accept); }
+.strip-cell.ok i { color: var(--paper); }
+.strip-cell.no { background: var(--refuse); border-color: var(--refuse); }
+.strip-cell.no i { color: var(--paper); }
+.strip-cell.skip { border-style: dashed; opacity: 0.5; }
+.attack-out p { margin: 0 0 6px; font-size: 14px; }
+.attack-prelude { color: var(--ink-2); font-style: italic; }
+.attack-verdict { font-size: 15px !important; }
+.attack-why { color: var(--ink-2); }
+
+/* ----------------------------------------------------------------- verify -- */
+
+.verify { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); }
+.verify > div { padding: 22px var(--pad) 32px; min-width: 0; }
+.verify-out { border-left: 1px solid var(--ink); background: var(--desk); }
+.json { width: 100%; font-family: var(--mono); font-size: 12px; line-height: 1.5; padding: 14px; background: var(--slip); border: 1px solid var(--ink); color: var(--ink); resize: vertical; margin-bottom: 14px; }
+.verdict-box { padding: 14px 18px 16px; margin-bottom: 14px; border-left: 4px solid; background: var(--slip); }
+.verdict-box strong { display: block; font-family: var(--serif); font-weight: 400; font-size: 38px; line-height: 1.05; }
+.verdict-box p { margin: 4px 0 0; font-size: 13px; color: var(--ink-2); }
+.verdict-box.good { border-color: var(--accept); }
+.verdict-box.good strong { color: var(--accept); }
+.verdict-box.bad { border-color: var(--refuse); }
+.verdict-box.bad strong { color: var(--refuse); }
+
+/* ----------------------------------------------------------- architecture -- */
+
+.flow { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); }
+.flow-step { padding: 24px var(--pad) 30px; position: relative; }
+.flow-step + .flow-step { border-left: 1px solid var(--ink); }
+.flow-head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.flow-n { font-family: var(--serif); font-size: 18px; color: var(--ink-3); }
+.flow-head h2 { font-size: 34px; }
+.flow-stages { font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); margin-left: auto; }
+.flow-q { font-family: var(--serif); font-style: italic; font-size: 19px; line-height: 1.25; margin: 6px 0 14px; color: var(--ink-2); }
+.flow-step ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 9px; font-size: 13.5px; }
+.flow-step li { padding-left: 14px; position: relative; }
+.flow-step li::before { content: ""; position: absolute; left: 0; top: 8px; width: 6px; height: 1.5px; background: var(--ink); }
+.flow-arrow { position: absolute; right: -13px; top: 28px; z-index: 2; background: var(--paper); font-family: var(--mono); width: 26px; text-align: center; }
+.principles { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 56px; }
+.principles li { display: grid; grid-template-columns: 40px 1fr; gap: 12px; }
+.principle-n { font-family: var(--serif); font-size: 44px; line-height: 0.9; color: var(--ink-3); }
+.principles h3 { font-size: 22px; line-height: 1.2; margin-bottom: 4px; }
+.principles p { margin: 0; color: var(--ink-2); font-size: 14.5px; }
+.limits { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; max-width: 78ch; }
+.limits li { padding-left: 16px; position: relative; color: var(--ink-2); }
+.limits li::before { content: ""; position: absolute; left: 0; top: 9px; width: 6px; height: 6px; background: var(--cond); }
+.limits b { color: var(--ink); }
+.thesis { padding: clamp(40px, 6vw, 80px) var(--pad); border-top: 2px solid var(--ink); background: var(--desk); }
+.thesis h2 { font-size: clamp(2rem, 4.2vw, 3.4rem); line-height: 1.04; max-width: 18em; margin: 8px 0 28px; }
+.thesis p { max-width: 68ch; font-size: 17px; line-height: 1.6; margin: 0 0 16px; }
+.thesis p:first-of-type::first-letter { font-family: var(--serif); font-size: 4.2em; float: left; line-height: 0.82; padding: 6px 10px 0 0; }
+
+/* --------------------------------------------------------------- passport -- */
+
+.pass-hero { display: grid; grid-template-columns: auto 1fr; gap: 32px; align-items: center; padding: clamp(24px, 4vw, 48px) var(--pad); }
+.pass-hero h1 { font-size: clamp(2.6rem, 6vw, 5rem); line-height: 1; margin: 4px 0 8px; }
+.pass-seal { color: var(--ink); }
+.did { font-size: 12px; overflow-wrap: anywhere; color: var(--ink-2); margin: 14px 0 0; max-width: 70ch; }
+.visas { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+.visa { position: relative; border: 1.5px solid var(--ink); background: var(--slip); padding: 14px 18px 16px; overflow: hidden; }
+.visa::before { content: ""; position: absolute; inset: 4px; border: 1px solid var(--rule); pointer-events: none; }
+.visa header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; position: relative; }
+.visa-line { margin: 0 0 8px; font-family: var(--serif); font-size: 21px; line-height: 1.2; position: relative; }
+.visa-line b { font-weight: 400; border-bottom: 1px solid var(--ink); }
+.visa ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 3px; font-size: 13.5px; position: relative; }
+.visa.void ul, .visa.void .visa-line { opacity: 0.45; }
+.void-stamp { position: absolute; right: 14px; bottom: 16px; transform: rotate(-12deg); border: 3px double var(--refuse); color: var(--refuse); font-family: var(--serif); font-size: 30px; text-transform: uppercase; letter-spacing: 0.1em; padding: 2px 12px; mix-blend-mode: multiply; filter: url(#ink); }
+.rost-passport { position: absolute; right: 12px; top: 14px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: underline; text-underline-offset: 3px; color: var(--ink-2); }
+.roster li { position: relative; }
+
+@media (max-width: 1100px) {
+  .flow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .flow-step:nth-child(3) { border-left: 0; }
+  .flow-step:nth-child(n + 3) { border-top: 1px solid var(--ink); }
+  .flow-arrow { display: none; }
+  .attack { grid-template-columns: 70px 1fr; }
+  .attack-result { grid-column: 2; }
+  .verify { grid-template-columns: 1fr; }
+  .verify-out { border-left: 0; border-top: 1px solid var(--ink); }
+}
+@media (max-width: 760px) {
+  .flow, .principles { grid-template-columns: 1fr; }
+  .flow-step + .flow-step { border-left: 0; border-top: 1px solid var(--ink); }
+  .pass-hero { grid-template-columns: 1fr; }
+  .attack { grid-template-columns: 1fr; }
+  .attack-result { grid-column: 1; }
+  .attack-id { font-size: 40px; }
+  .ledger.wide { display: block; overflow-x: auto; }
+}

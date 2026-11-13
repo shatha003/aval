@@ -1,0 +1,13 @@
+# Reputation is a local judgement over shared evidence
+
+Today an agent’s identity is an API key and its reputation is its vendor’s logo. That holds while a human is watching. It breaks once agents transact across organisations, because a key says who is calling, never what they may do, what they have done, or who answers for them.
+
+Within two years the missing layer will be three portable objects: a key-bound identity the agent proves live; scoped, expiring, revocable authority that can only narrow as it is delegated; and co-signed receipts, records two independent parties both signed, so history cannot be self-authored. Everything else, reputation included, is derived from these by whoever is verifying.
+
+That is the thesis. Reputation will not be a global score. A global score is a single point of capture and a single target for gaming. It will be a local judgement over shared evidence: every verifier runs its own policy over facts anyone can check. Standards such as DIDs and Verifiable Credentials make the evidence portable; policy stays sovereign.
+
+Three problems decide whether this works. Sybil resistance: vouches and trade volume are cheap to fake, so weight must come from independent history, which is why AVAL discounts anything that circles back to the subject. Cold start: unknown must mean small, escrowed tasks, never blocked and never trusted. Privacy: a full receipt history leaks competitive information, so the next step is selective disclosure and zero-knowledge proofs of properties, such as “over a hundred independent fulfilments”, instead of the records themselves.
+
+Whoever standardises the receipt format, not the score, will own this layer, the way certificates rather than browsers own web trust. Agents that cannot present a verifiable passport will be treated like unsigned email: deliverable in theory, ignored in practice.
+
+<!-- 286 words of body (294 with the title). Mirrors apps/web/content/thesis.ts. -->

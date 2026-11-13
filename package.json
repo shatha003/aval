@@ -1,0 +1,11 @@
+{
+  "name": "aval",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "test": "pnpm --filter @aval/core test",
+    "dev": "pnpm --filter web dev",
+    "build": "pnpm --filter web build"
+  },
+  "packageManager": "pnpm@11.0.9"
+}
